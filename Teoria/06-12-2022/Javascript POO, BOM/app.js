@@ -284,7 +284,61 @@ const filtrarUsers = function (termino) {
 
 //------------------------------------------------ejemplo practico de POOO-----------------------------------------------------
 
-//min 1.10
+class Usuario{      //la palabra reservada class se usa para comenzar a armar nuestro molde
+  constructor(nombre,username,password){    //constructor es una palabra reservada para crear los elementos del molde
+    this.nombre=nombre
+    this.username=username        // recordemos que la palabra this se usa para llamar a los elementos dentro del objeto.
+    this.password=password
+  }
+  presentacion(){       //esto serian las capacidades o funciones
+    console.log("=====Tarjeta de presentacion======")
+    console.log(`Nombre: ${this.nombre}`)
+    console.log(`Username: ${this.username}`)
 
+  }
+}
+// ahora creamos la "instacncia"
 
+const user1=new Usuario(`Mauro`,`Drako1702`,`12345678`) // la palabra reservada new se usa para crear una instancia, donde especificamos la clase que usaremos
+
+const user2=new Usuario(`Paula `,`kuromi`,`1234685`)
+
+// tambien podemos reutilizar el codigo que tenemos, para crear clases que tengan las mimas carecteristicas que una clase ya creada pero con caracteristicas nuevas
+class Admin extends Usuario{ // para extraer las caracteristicas de otra clase para usarlas en una nueva, se usa la palabra extended
+  constructor(nombre,username,password,puesto,activo=false){
+    super(nombre,username,password) // al haber indicado que usaremos las propiedades de otra clase, debemos usar la palabra "super" con los datos que queremos exportar de la otra clase, con eso resumimos ese paso
+    this.puesto=puesto
+    this.activo=activo
+  }
+  cambiarActivo(){
+    this.activo=!this.activo
+  }
+  saludarAdmin(){
+    super.presentacion() //de esta manera podemos traer tambien los elementos de una funcion y agregarle algo mas
+    console.log(`Puesto: ${this.puesto}`)
+  }
+}
+
+const admin1=new Admin(`Mauro`,`Drako`,`123456`,`Gerente`)
   
+//--------------------------ejercicio---------------------------
+
+class Cuenta{
+  constructor(titular,saldo=0,){
+    this.titular=titular
+    this.saldo=saldo
+  }
+  ingresar(){
+    this.saldo=this.saldo+parseInt(prompt("Indique la cantidad a ingresar")) 
+  }
+  extraer(){
+    this.saldo=this.saldo-parseInt(prompt("Indique la cantidad que desee retirar")) 
+  }
+  informar(){
+    console.log("====ESTADO DE CUENTA====")
+    console.log(`Titular: ${this.titular}`)
+    console.log(`Titular: ${this.saldo}`)
+  }
+}
+
+const cliente1=new Cuenta(`Mauro Soto`,1000000)
