@@ -37,69 +37,87 @@ tabla.innerHTML=`
 </tr>
 </tbody>` // la propiedad innerHTML nos permite agregar codigo de html a JS
 
-contenedor.append(titulo,imagen,tabla) // esta parte de codigo, donde se renderiza todo, siempre debe estar al final, por regla de la cascada
 const usuarios = [
-    {
-      id: 0,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 1,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 2,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 3,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 4,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 5,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 6,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 7,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-    {
-      id: 8,
-      email: "elmasca_pitos@hotmail.com",
-      first_name: "Micho",
-      last_name: "Talarga",
-      avatar: "https://reqres.in/img/faces/11-image.jpg",
-    },
-  ];
+  {
+    id: 0,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 1,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 2,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 3,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 4,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 5,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 6,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 7,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+  {
+    id: 8,
+    email: "elmasca_pitos@hotmail.com",
+    first_name: "Micho",
+    last_name: "Talarga",
+    avatar: "https://reqres.in/img/faces/11-image.jpg",
+  },
+];
+
+const crearTarjetas=function(){
+  usuarios.map(function(usuario){
+    let div=document.createElement("div")
+    div.classList="col"
+    div.innerHTML=`<div class="card h-100">
+    <img src=${usuario.avatar} class="card-img-top img-card" alt=${usuario.first_name}>
+    <div class="card-body">
+    <h5 class="card-title">${usuario.firt_name} ${usuario.last_name}</h5>
+    <p class"card-text"> bla bla bla bla bla bla bla bla bla bla.</p>
+    <small class="text-muted">${usuario.email}</small>
+    </div>
+    </div>`;
+    document.querySelector("#container_card").appendChild(div)
+    
+  })
+}
+contenedor.append(titulo,imagen,tabla) // esta parte de codigo, donde se renderiza todo, siempre debe estar al final, por regla de la cascada
+crearTarjetas()
